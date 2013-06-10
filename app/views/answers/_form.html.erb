@@ -1,0 +1,13 @@
+<%= form_for([@question, @question.answers.build]) do |f| %>
+        <div class="field">
+                <%= f.label :answerer %><br />
+                <%= f.text_field :answerer %>
+        </div>
+        <div class="field">
+                <%= f.label :detail %><br />
+                <%= f.text_area :detail %>
+        </div>
+        <div class="actions">
+                <%= f.submit %>
+        </div>
+<% end %>
