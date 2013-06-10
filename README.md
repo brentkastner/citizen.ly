@@ -1,4 +1,4 @@
 citizen.ly
 ==========
 
-Citizen.ly platform
+cities powered by citizens
