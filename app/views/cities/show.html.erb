@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @city.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @city.address %>
+</p>
+
+<p>
+  <b>Address2:</b>
+  <%= @city.address2 %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @city.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @city.state %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%= @city.zip %>
+</p>
+
+<h2>Questions</h2>
+<%= render @city.questions %>
+
+<h2>Ask A Question</h2>
+<%= render "questions/cityform" %>
+
+
+<%= link_to 'Edit', edit_city_path(@city) %> |
+<%= link_to 'Back', cities_path %>

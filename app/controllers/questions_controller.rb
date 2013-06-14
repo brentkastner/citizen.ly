@@ -14,7 +14,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1.json
   def show
     @question = Question.find(params[:id])
-
+    @city = @question.city_id
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @question }
@@ -39,19 +39,25 @@ class QuestionsController < ApplicationController
 
   # POST /questions
   # POST /questions.json
-  def create
-    @question = Question.new(params[:question])
+ def create
+        @city = City.find(params[:city_id])
+        @question = @city.questions.create(params[:question])
+        redirect_to city_path(@city)
+ end
 
-    respond_to do |format|
-      if @question.save
-        format.html { redirect_to @question, :notice => 'Question was successfully created.' }
-        format.json { render :json => @question, :status => :created, :location => @question }
-      else
-        format.html { render :action => "new" }
-        format.json { render :json => @question.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
+#  def create
+#    @question = Question.new(params[:question])
+
+#    respond_to do |format|
+#      if @question.save
+#        format.html { redirect_to @question, :notice => 'Question was successfully created.' }
+#        format.json { render :json => @question, :status => :created, :location => @question }
+#      else
+#        format.html { render :action => "new" }
+#        format.json { render :json => @question.errors, :status => :unprocessable_entity }
+#      end
+#    end
+#  end
 
   # PUT /questions/1
   # PUT /questions/1.json

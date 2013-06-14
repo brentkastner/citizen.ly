@@ -4,6 +4,7 @@ class Question < ActiveRecord::Base
   validates	:question,	:presence => true
   validates	:detail,	:presence => true
 
+  belongs_to	:city
   has_many	:answers
 
 end
